@@ -1,9 +1,11 @@
 import asyncio
+import re
 import time
 
 from bs4 import BeautifulSoup
 from httpx import AsyncClient
 from urllib.parse import urljoin
+from config import regex_pattern
 
 HOME_URL = "https://djinni.co"
 URL = "https://djinni.co/jobs/?primary_keyword=Python"
@@ -24,10 +26,11 @@ async def get_djinni_jobs(page: int, client: AsyncClient) -> list:
     return [job.select_one("a.job-list-item__link")["href"] for job in soup.select("li.list-jobs__item")]
 
 
-async def parse_job(link: str, client: AsyncClient):
+async def parse_job(link: str, client: AsyncClient) -> list:
     response = await client.get(urljoin(HOME_URL, link))
     soup = BeautifulSoup(response.content, "html.parser")
-    return ''.join(soup.select_one("h1").find_all(text=True, recursive=False))
+    job_description = soup.select("div.mb-4")[0].get_text()
+    return re.findall(regex_pattern, job_description)
 
 
 async def main():
