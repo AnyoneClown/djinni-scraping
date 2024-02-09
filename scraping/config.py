@@ -75,7 +75,7 @@ TECHNOLOGIES = [
     "MySQL",
     "MongoDB",
     "DRF",
-    "PostgresSQL",
+    "PostgreSQL",
     "Clouds",
     "SQLite",
     "Microsoft SQL Server",
@@ -101,6 +101,17 @@ TECHNOLOGIES = [
     "NoSQL",
     "Algorithms",
     "Asyncio",
+    "JWT",
+    "Node.js",
+    "Unix",
+    "RabbitMQ",
+    "Threading",
+    "Multiprocessing",
+    "PostGIS",
+    "WebSockets",
+    "SPARK",
+    "Swagger",
+    "OpenAPI",
 ]
 
 regex_pattern = r'\b(?:' + '|'.join(re.escape(tech) for tech in TECHNOLOGIES) + r')\b'
