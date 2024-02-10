@@ -114,4 +114,6 @@ TECHNOLOGIES = [
     "OpenAPI",
 ]
 
-regex_pattern = r'\b(?:' + '|'.join(re.escape(tech) for tech in TECHNOLOGIES) + r')\b'
+regex_pattern = (
+    r"\b(?:" + "|".join(re.escape(tech) for tech in TECHNOLOGIES) + r")\b"
+)
