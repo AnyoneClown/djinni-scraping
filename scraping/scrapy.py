@@ -2,6 +2,7 @@ import asyncio
 import csv
 import re
 import time
+
 from dataclasses import astuple, fields
 from typing import NoReturn
 
@@ -10,6 +11,7 @@ from httpx import AsyncClient
 from urllib.parse import urljoin
 from config import regex_pattern
 from scraping.models import Vacancy
+
 
 HOME_URL = "https://djinni.co"
 URL = "https://djinni.co/jobs/?primary_keyword=Python"
